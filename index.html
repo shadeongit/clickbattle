@@ -397,89 +397,90 @@
       color: #666;
       font-style: italic;
     }
-/* Shop Items */
-.shop-item {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  border-radius: 12px;
-  padding: 20px;
-  text-align: left;
-  transition: transform 0.2s ease;
-  position: relative;
-  overflow: hidden;
-}
 
-.shop-item:hover {
-  transform: translateY(-3px);
-}
+    /* Shop Items */
+    .shop-item {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: left;
+      transition: transform 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-.shop-item.affordable {
-  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
-  box-shadow: 0 2px 10px rgba(67, 233, 123, 0.2);
-}
+    .shop-item:hover {
+      transform: translateY(-3px);
+    }
 
-.shop-item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
+    .shop-item.affordable {
+      background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+      box-shadow: 0 2px 10px rgba(67, 233, 123, 0.2);
+    }
 
-.shop-item-icon {
-  font-size: 2em;
-}
+    .shop-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
 
-.shop-item-owned {
-  background: #667eea;
-  color: white;
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  font-weight: bold;
-}
+    .shop-item-icon {
+      font-size: 2em;
+    }
 
-.shop-item-title {
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-bottom: 5px;
-  color: #333;
-}
+    .shop-item-owned {
+      background: #667eea;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: bold;
+    }
 
-.shop-item-description {
-  font-size: 0.9em;
-  color: #666;
-  margin-bottom: 10px;
-}
+    .shop-item-title {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 5px;
+      color: #333;
+    }
 
-.shop-item-stats {
-  font-size: 0.85em;
-  color: #43e97b;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
+    .shop-item-description {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 10px;
+    }
 
-.shop-buy-button {
-  width: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 1em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+    .shop-item-stats {
+      font-size: 0.85em;
+      color: #43e97b;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
 
-.shop-buy-button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
+    .shop-buy-button {
+      width: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
 
-.shop-buy-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  background: linear-gradient(135deg, #ccc 0%, #999 100%);
-}
+    .shop-buy-button:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .shop-buy-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background: linear-gradient(135deg, #ccc 0%, #999 100%);
+    }
     /* Achievement Notification */
     .achievement-notification {
       position: fixed;
@@ -615,11 +616,11 @@
         <h2 id="userName">👋 Hallo</h2>
         
         <div class="nav-menu">
-         <button class="nav-button active" data-section="play">🎮 Spielen</button>
-<button class="nav-button" data-section="shop">🛒 Shop</button>
-<button class="nav-button" data-section="leaderboard">🏆 Leaderboard</button>
-<button class="nav-button" data-section="rebirths">🔄 Wiedergeburten</button>
-<button class="nav-button" data-section="achievements">🏅 Erfolge</button>
+          <button class="nav-button active" data-section="play">🎮 Spielen</button>
+          <button class="nav-button" data-section="shop">🛒 Shop</button>
+          <button class="nav-button" data-section="leaderboard">🏆 Leaderboard</button>
+          <button class="nav-button" data-section="rebirths">🔄 Wiedergeburten</button>
+          <button class="nav-button" data-section="achievements">🏅 Erfolge</button>
         </div>
 
         <!-- PLAY SECTION -->
@@ -632,31 +633,34 @@
             ✨ Multiplikator: x1.0
           </div>
 
-    <div class="stats">
-  <div class="stats-label">Deine Klicks</div>
-  <div class="click-count" id="myClicks">0</div>
-  <div class="stats-label" style="margin-top: 15px; font-size: 0.9em;">
-    ⚡ Klicks pro Sekunde: <span id="cpsDisplay" style="color: #43e97b; font-weight: bold;">0.0</span>
-  </div>
-</div>
+          <div class="stats">
+            <div class="stats-label">Deine Klicks</div>
+            <div class="click-count" id="myClicks">0</div>
+            <div class="stats-label" style="margin-top: 15px; font-size: 0.9em;">
+              ⚡ Klicks pro Sekunde: <span id="cpsDisplay" style="color: #43e97b; font-weight: bold;">0.0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SHOP SECTION -->
+        <div class="section" id="shop">
+          <p class="subtitle">Kaufe passive Klick-Generatoren!</p>
+          
+          <div class="stats" style="margin-bottom: 20px;">
+            <div class="stats-label">Gesamte passive Einnahmen</div>
+            <div class="click-count" style="font-size: 2em; color: #43e97b;" id="totalCPS">0.0</div>
+            <div class="stats-label" style="font-size: 0.9em;">Klicks pro Sekunde</div>
+          </div>
+
+          <div class="achievements-grid" id="shopGrid"></div>
+        </div>
 
         <!-- LEADERBOARD SECTION -->
         <div class="section" id="leaderboard">
           <p class="subtitle">Die besten Spieler</p>
           <ul id="leaderList"></ul>
         </div>
-<!-- SHOP SECTION -->
-<div class="section" id="shop">
-  <p class="subtitle">Kaufe passive Klick-Generatoren!</p>
-  
-  <div class="stats" style="margin-bottom: 20px;">
-    <div class="stats-label">Gesamte passive Einnahmen</div>
-    <div class="click-count" style="font-size: 2em; color: #43e97b;" id="totalCPS">0.0</div>
-    <div class="stats-label" style="font-size: 0.9em;">Klicks pro Sekunde</div>
-  </div>
 
-  <div class="achievements-grid" id="shopGrid"></div>
-</div>
         <!-- REBIRTHS SECTION -->
         <div class="section" id="rebirths">
           <p class="subtitle">Setze dich zurück für dauerhafte Boni!</p>
@@ -734,61 +738,60 @@
     const multiplierDisplay = document.getElementById("multiplierDisplay");
     const achievementsGrid = document.getElementById("achievementsGrid");
 
-  let currentUser = null;
-let userClicks = 0;
-let rebirths = 0;
-let multiplier = 1.0;
-let achievements = {};
-let clickTimes = [];
-let firstClickTime = null;
-let loginDates = [];
-let upgrades = {};
-let passiveInterval = null;
+    let currentUser = null;
+    let userClicks = 0;
+    let rebirths = 0;
+    let multiplier = 1.0;
+    let achievements = {};
+    let clickTimes = [];
+    let firstClickTime = null;
+    let loginDates = [];
+    let upgrades = {};
+    let passiveInterval = null;
 
-// Shop upgrade definitions
-const shopUpgrades = {
-  autoClicker: {
-    icon: "🖱️",
-    title: "Auto-Klicker",
-    desc: "Generiert automatisch Klicks",
-    baseCost: 100,
-    baseCPS: 0.1,
-    costMultiplier: 1.15
-  },
-  clickBot: {
-    icon: "🤖",
-    title: "Klick-Bot",
-    desc: "Ein Bot der für dich klickt",
-    baseCost: 500,
-    baseCPS: 0.5,
-    costMultiplier: 1.15
-  },
-  clickFactory: {
-    icon: "🏭",
-    title: "Klick-Fabrik",
-    desc: "Eine ganze Fabrik voller Klicks",
-    baseCost: 2000,
-    baseCPS: 2,
-    costMultiplier: 1.15
-  },
-  clickEmpire: {
-    icon: "🏰",
-    title: "Klick-Imperium",
-    desc: "Ein mächtiges Klick-Imperium",
-    baseCost: 10000,
-    baseCPS: 10,
-    costMultiplier: 1.15
-  },
-  clickDimension: {
-    icon: "🌌",
-    title: "Klick-Dimension",
-    desc: "Eine ganze Dimension aus Klicks",
-    baseCost: 50000,
-    baseCPS: 50,
-    costMultiplier: 1.15
-  }
-};
-
+    // Shop upgrade definitions
+    const shopUpgrades = {
+      autoClicker: {
+        icon: "🖱️",
+        title: "Auto-Klicker",
+        desc: "Generiert automatisch Klicks",
+        baseCost: 100,
+        baseCPS: 0.1,
+        costMultiplier: 1.15
+      },
+      clickBot: {
+        icon: "🤖",
+        title: "Klick-Bot",
+        desc: "Ein Bot der für dich klickt",
+        baseCost: 500,
+        baseCPS: 0.5,
+        costMultiplier: 1.15
+      },
+      clickFactory: {
+        icon: "🏭",
+        title: "Klick-Fabrik",
+        desc: "Eine ganze Fabrik voller Klicks",
+        baseCost: 2000,
+        baseCPS: 2,
+        costMultiplier: 1.15
+      },
+      clickEmpire: {
+        icon: "🏰",
+        title: "Klick-Imperium",
+        desc: "Ein mächtiges Klick-Imperium",
+        baseCost: 10000,
+        baseCPS: 10,
+        costMultiplier: 1.15
+      },
+      clickDimension: {
+        icon: "🌌",
+        title: "Klick-Dimension",
+        desc: "Eine ganze Dimension aus Klicks",
+        baseCost: 50000,
+        baseCPS: 50,
+        costMultiplier: 1.15
+      }
+    };
 
     // Achievement definitions
     const achievementDefs = {
@@ -801,30 +804,106 @@ const shopUpgrades = {
       bornAgain: { icon: "🔄", title: "Born Again", desc: "Complete your first rebirth", check: () => rebirths >= 1 },
       phoenixRising: { icon: "🦅", title: "Phoenix Rising", desc: "Complete 5 rebirths", check: () => rebirths >= 5 },
       infinitePower: { icon: "♾️", title: "Infinite Power", desc: "Complete 10 rebirths", check: () => rebirths >= 10 },
-     colorCollector: { icon: "🎨", title: "Color Collector", desc: "Unlock all button color stages", check: () => userClicks >= 10000 },
-shopaholic: { icon: "🛍️", title: "Shopaholic", desc: "Buy your first upgrade", check: () => getTotalUpgrades() >= 1 },
-passiveMaster: { icon: "⚡", title: "Passive Master", desc: "Reach 10 CPS", check: () => calculateCPS() >= 10 },
-automation: { icon: "🔧", title: "Automation Expert", desc: "Own 25 total upgrades", check: () => getTotalUpgrades() >= 25 }
-};
-    ;
-function getTotalUpgrades() {
-  return Object.values(upgrades).reduce((sum, count) => sum + count, 0);
-}
+      colorCollector: { icon: "🎨", title: "Color Collector", desc: "Unlock all button color stages", check: () => userClicks >= 10000 },
+      shopaholic: { icon: "🛍️", title: "Shopaholic", desc: "Buy your first upgrade", check: () => getTotalUpgrades() >= 1 },
+      passiveMaster: { icon: "⚡", title: "Passive Master", desc: "Reach 10 CPS", check: () => calculateCPS() >= 10 },
+      automation: { icon: "🔧", title: "Automation Expert", desc: "Own 25 total upgrades", check: () => getTotalUpgrades() >= 25 }
+    };
 
-function calculateCPS() {
-  let cps = 0;
-  for (const [key, upgrade] of Object.entries(shopUpgrades)) {
-    const owned = upgrades[key] || 0;
-    cps += owned * upgrade.baseCPS;
-  }
-  return cps * multiplier;
-}
+    function getTotalUpgrades() {
+      return Object.values(upgrades).reduce((sum, count) => sum + count, 0);
+    }
 
-function getUpgradeCost(upgradeKey) {
-  const upgrade = shopUpgrades[upgradeKey];
-  const owned = upgrades[upgradeKey] || 0;
-  return Math.floor(upgrade.baseCost * Math.pow(upgrade.costMultiplier, owned));
-}
+    function calculateCPS() {
+      let cps = 0;
+      for (const [key, upgrade] of Object.entries(shopUpgrades)) {
+        const owned = upgrades[key] || 0;
+        cps += owned * upgrade.baseCPS;
+      }
+      return cps * multiplier;
+    }
+
+    function getUpgradeCost(upgradeKey) {
+      const upgrade = shopUpgrades[upgradeKey];
+      const owned = upgrades[upgradeKey] || 0;
+      return Math.floor(upgrade.baseCost * Math.pow(upgrade.costMultiplier, owned));
+    }
+
+    function buyUpgrade(upgradeKey) {
+      const cost = getUpgradeCost(upgradeKey);
+      
+      if (userClicks >= cost && currentUser) {
+        userClicks -= cost;
+        upgrades[upgradeKey] = (upgrades[upgradeKey] || 0) + 1;
+        
+        const userRef = ref(db, "clicks/" + currentUser.uid);
+        update(userRef, {
+          count: userClicks,
+          upgrades: upgrades
+        });
+        
+        checkAchievements();
+        updateUI();
+        renderShop();
+      }
+    }
+
+    function renderShop() {
+      const shopGrid = document.getElementById('shopGrid');
+      shopGrid.innerHTML = '';
+      
+      for (const [key, upgrade] of Object.entries(shopUpgrades)) {
+        const owned = upgrades[key] || 0;
+        const cost = getUpgradeCost(key);
+        const canAfford = userClicks >= cost;
+        const cps = upgrade.baseCPS * multiplier;
+        
+        const card = document.createElement('div');
+        card.className = `shop-item ${canAfford ? 'affordable' : ''}`;
+        card.innerHTML = `
+          <div class="shop-item-header">
+            <span class="shop-item-icon">${upgrade.icon}</span>
+            <span class="shop-item-owned">Besitzt: ${owned}</span>
+          </div>
+          <div class="shop-item-title">${upgrade.title}</div>
+          <div class="shop-item-description">${upgrade.desc}</div>
+          <div class="shop-item-stats">+${cps.toFixed(1)} Klicks/Sekunde</div>
+          <button class="shop-buy-button" ${!canAfford ? 'disabled' : ''} onclick="buyUpgrade('${key}')">
+            💰 Kaufen für ${cost.toLocaleString()} Klicks
+          </button>
+        `;
+        shopGrid.appendChild(card);
+      }
+      
+      const totalCPS = calculateCPS();
+      document.getElementById('totalCPS').textContent = totalCPS.toFixed(1);
+    }
+
+    // Make buyUpgrade globally accessible
+    window.buyUpgrade = buyUpgrade;
+
+    // Start passive income generation
+    function startPassiveIncome() {
+      if (passiveInterval) clearInterval(passiveInterval);
+      
+      passiveInterval = setInterval(() => {
+        if (currentUser && calculateCPS() > 0) {
+          const cps = calculateCPS();
+          const increment = cps / 10;
+          userClicks += increment;
+          
+          if (Math.random() < 0.02) {
+            const userRef = ref(db, "clicks/" + currentUser.uid);
+            update(userRef, {
+              count: userClicks
+            });
+          }
+          
+          updateUI();
+        }
+      }, 100);
+    }
+
     // Navigation
     document.querySelectorAll('.nav-button').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -860,7 +939,6 @@ function getUpgradeCost(upgradeKey) {
         if (!firstClickTime) firstClickTime = now;
         clickTimes.push(now);
         
-        // Keep only last 100 clicks for speed calculations
         if (clickTimes.length > 100) clickTimes.shift();
         
         const userRef = ref(db, "clicks/" + currentUser.uid);
@@ -870,13 +948,13 @@ function getUpgradeCost(upgradeKey) {
           let data = snapshot.exists() ? snapshot.val() : { count: 0, rebirths: 0, achievements: {} };
           const newCount = (data.count || 0) + clickValue;
           
-         update(userRef, {
-  name: currentUser.displayName,
-  count: newCount,
-  rebirths: data.rebirths || 0,
-  achievements: achievements,
-  upgrades: upgrades
-});
+          update(userRef, {
+            name: currentUser.displayName,
+            count: newCount,
+            rebirths: data.rebirths || 0,
+            achievements: achievements,
+            upgrades: upgrades
+          });
           
           updateButtonStage(newCount);
           checkAchievements();
@@ -893,92 +971,14 @@ function getUpgradeCost(upgradeKey) {
           const newRebirths = rebirths + 1;
           const newMultiplier = 1.0 + (newRebirths * 0.1);
           
-        set(userRef, {
-  name: currentUser.displayName,
-  count: 0,
-  rebirths: newRebirths,
-  achievements: achievements,
-  upgrades: upgrades
-});
-          function buyUpgrade(upgradeKey) {
-  const cost = getUpgradeCost(upgradeKey);
-  
-  if (userClicks >= cost && currentUser) {
-    // Deduct the cost from user's clicks
-    userClicks -= cost;
-    
-    // Increase upgrade count
-    upgrades[upgradeKey] = (upgrades[upgradeKey] || 0) + 1;
-    
-    // Update database
-    const userRef = ref(db, "clicks/" + currentUser.uid);
-    update(userRef, {
-      count: userClicks,
-      upgrades: upgrades
-    });
-    
-    checkAchievements();
-    updateUI();
-    renderShop();
-  }
-}
-
-function renderShop() {
-  const shopGrid = document.getElementById('shopGrid');
-  shopGrid.innerHTML = '';
-  
-  for (const [key, upgrade] of Object.entries(shopUpgrades)) {
-    const owned = upgrades[key] || 0;
-    const cost = getUpgradeCost(key);
-    const canAfford = userClicks >= cost;
-    const cps = upgrade.baseCPS * multiplier;
-    
-    const card = document.createElement('div');
-    card.className = `shop-item ${canAfford ? 'affordable' : ''}`;
-    card.innerHTML = `
-      <div class="shop-item-header">
-        <span class="shop-item-icon">${upgrade.icon}</span>
-        <span class="shop-item-owned">Besitzt: ${owned}</span>
-      </div>
-      <div class="shop-item-title">${upgrade.title}</div>
-      <div class="shop-item-description">${upgrade.desc}</div>
-      <div class="shop-item-stats">+${cps.toFixed(1)} Klicks/Sekunde</div>
-      <button class="shop-buy-button" ${!canAfford ? 'disabled' : ''} onclick="buyUpgrade('${key}')">
-        💰 Kaufen für ${cost.toLocaleString()} Klicks
-      </button>
-    `;
-    shopGrid.appendChild(card);
-  }
-  
-  const totalCPS = calculateCPS();
-  document.getElementById('totalCPS').textContent = totalCPS.toFixed(1);
-}
-
-// Make buyUpgrade globally accessible
-window.buyUpgrade = buyUpgrade;
-
-// Start passive income generation
-function startPassiveIncome() {
-  if (passiveInterval) clearInterval(passiveInterval);
-  
-  passiveInterval = setInterval(() => {
-    if (currentUser && calculateCPS() > 0) {
-      const cps = calculateCPS();
-      const increment = cps / 10; // Update 10 times per second
-      userClicks += increment;
-      
-      // Update database every 5 seconds to avoid too many writes
-      if (Math.random() < 0.02) { // 2% chance each tick = ~every 5 seconds
-        const userRef = ref(db, "clicks/" + currentUser.uid);
-        update(userRef, {
-          count: userClicks
-        });
-      }
-      
-      updateUI();
-    }
-  }, 100);
-}
+          set(userRef, {
+            name: currentUser.displayName,
+            count: 0,
+            rebirths: newRebirths,
+            achievements: achievements,
+            upgrades: upgrades
+          });
+          
           rebirths = newRebirths;
           multiplier = newMultiplier;
           userClicks = 0;
@@ -1009,7 +1009,6 @@ function startPassiveIncome() {
           achievements[key] = true;
           showAchievementNotification(def);
           
-          // Save to database
           if (currentUser) {
             const userRef = ref(db, "clicks/" + currentUser.uid);
             update(userRef, { achievements: achievements });
@@ -1055,7 +1054,7 @@ function startPassiveIncome() {
       myClicksSpan.textContent = Math.floor(userClicks);
       multiplierDisplay.textContent = `✨ Multiplikator: x${multiplier.toFixed(1)}`;
       const cps = calculateCPS();
-document.getElementById('cpsDisplay').textContent = cps.toFixed(1);
+      document.getElementById('cpsDisplay').textContent = cps.toFixed(1);
       document.getElementById('rebirthCount').textContent = rebirths;
       document.getElementById('currentMultiplier').textContent = `x${multiplier.toFixed(1)}`;
       document.getElementById('nextMultiplier').textContent = `x${(multiplier + 0.1).toFixed(1)}`;
@@ -1066,10 +1065,10 @@ document.getElementById('cpsDisplay').textContent = cps.toFixed(1);
         ? `🔄 Wiedergeburt durchführen!` 
         : `🔄 Wiedergeburt (${Math.floor(userClicks)}/10,000)`;
       
-    updateButtonStage(userClicks);
-renderAchievements();
-renderShop();
-}
+      updateButtonStage(userClicks);
+      renderAchievements();
+      renderShop();
+    }
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -1077,18 +1076,18 @@ renderShop();
         loginDiv.style.display = "none";
         appDiv.style.display = "block";
         userNameElement.textContent = `👋 Hallo, ${user.displayName || "Gast"}`;
-      loadUserClicks();
-watchLeaderboard();
-startPassiveIncome();
-} else {
-  currentUser = null;
-  loginDiv.style.display = "block";
-  appDiv.style.display = "none";
-  if (passiveInterval) {
-    clearInterval(passiveInterval);
-    passiveInterval = null;
-  }
-}
+        loadUserClicks();
+        watchLeaderboard();
+        startPassiveIncome();
+      } else {
+        currentUser = null;
+        loginDiv.style.display = "block";
+        appDiv.style.display = "none";
+        if (passiveInterval) {
+          clearInterval(passiveInterval);
+          passiveInterval = null;
+        }
+      }
     });
 
     function loadUserClicks() {
@@ -1169,6 +1168,7 @@ startPassiveIncome();
 
     // Initialize achievements on load
     renderAchievements();
+    renderShop();
   </script>
 
 </body>
