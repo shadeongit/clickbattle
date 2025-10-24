@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
@@ -12,363 +11,509 @@
       box-sizing: border-box;
     }
 
-```
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  color: #333;
-}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #333;
+    }
 
-.container {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+    .container {
+      width: 100%;
+      max-width: 900px;
+      animation: slideIn 0.5s ease-out;
+    }
 
-.app {
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  padding: 40px;
-  text-align: center;
-  flex: 1;
-  min-width: 300px;
-  max-width: 500px;
-  animation: slideIn 0.5s ease-out;
-}
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
+    @keyframes achievementSlide {
+      0% {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      10%, 90% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+    }
 
-h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+    .app {
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      padding: 40px;
+      text-align: center;
+    }
 
-.subtitle {
-  color: #666;
-  margin-bottom: 30px;
-  font-size: 1.1em;
-}
+    h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-.click-button {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  margin: 30px auto;
-  position: relative;
-  overflow: hidden;
-  font-size: 0;
-}
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 1.1em;
+    }
 
-.click-button:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-}
+    /* Navigation Menu */
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
 
-.click-button:active {
-  transform: scale(0.95);
-}
+    .nav-button {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
 
-.click-button::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.5);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
 
-.click-button:active::before {
-  width: 400px;
-  height: 400px;
-}
+    .nav-button.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-weight: bold;
+    }
 
-/* Color stages based on clicks */
-.click-button.stage-0 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-.click-button.stage-1 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); animation: pulse 2s infinite; }
-.click-button.stage-2 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); animation: pulse 1.5s infinite; }
-.click-button.stage-3 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); animation: pulse 1s infinite; }
-.click-button.stage-4 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); animation: pulse 0.8s infinite; box-shadow: 0 10px 40px rgba(250, 112, 154, 0.6); }
-.click-button.stage-5 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); animation: pulse 0.6s infinite; box-shadow: 0 10px 40px rgba(48, 207, 208, 0.6); }
-.click-button.stage-6 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); animation: pulse 0.5s infinite; box-shadow: 0 15px 50px rgba(168, 237, 234, 0.7); }
-.click-button.stage-7 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); animation: pulse 0.4s infinite; box-shadow: 0 20px 60px rgba(255, 154, 158, 0.8); }
-.click-button.stage-8 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); animation: pulse 0.3s infinite; box-shadow: 0 25px 70px rgba(255, 236, 210, 0.9); }
-.click-button.stage-9 { background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%); animation: pulse 0.2s infinite; box-shadow: 0 30px 80px rgba(255, 8, 68, 1); }
-.click-button.stage-10 { background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%); animation: pulse 0.15s infinite; box-shadow: 0 35px 90px rgba(253, 219, 146, 1); }
+    /* Sections */
+    .section {
+      display: none;
+    }
 
-.stats {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  border-radius: 16px;
-  padding: 20px;
-  margin: 20px 0;
-}
+    .section.active {
+      display: block;
+    }
 
-.click-count {
-  font-size: 3em;
-  font-weight: bold;
-  color: #667eea;
-  margin: 10px 0;
-}
+    .click-button {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      margin: 30px auto;
+      position: relative;
+      overflow: hidden;
+      font-size: 0;
+    }
 
-.stats-label {
-  color: #666;
-  font-size: 1.1em;
-  margin-bottom: 5px;
-}
+    .click-button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
 
-.multiplier-display {
-  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-  border-radius: 12px;
-  padding: 15px;
-  margin: 15px 0;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #d35400;
-}
+    .click-button:active {
+      transform: scale(0.95);
+    }
 
-.rebirth-section {
-  margin-top: 20px;
-}
+    .click-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
 
-.rebirth-button {
-  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  border-radius: 25px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: 10px;
-  box-shadow: 0 5px 20px rgba(253, 160, 133, 0.4);
-}
+    .click-button:active::before {
+      width: 400px;
+      height: 400px;
+    }
 
-.rebirth-button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(253, 160, 133, 0.6);
-}
+    .click-button.stage-0 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .click-button.stage-1 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); animation: pulse 2s infinite; }
+    .click-button.stage-2 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); animation: pulse 1.5s infinite; }
+    .click-button.stage-3 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); animation: pulse 1s infinite; }
+    .click-button.stage-4 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); animation: pulse 0.8s infinite; box-shadow: 0 10px 40px rgba(250, 112, 154, 0.6); }
+    .click-button.stage-5 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); animation: pulse 0.6s infinite; box-shadow: 0 10px 40px rgba(48, 207, 208, 0.6); }
+    .click-button.stage-6 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); animation: pulse 0.5s infinite; box-shadow: 0 15px 50px rgba(168, 237, 234, 0.7); }
+    .click-button.stage-7 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); animation: pulse 0.4s infinite; box-shadow: 0 20px 60px rgba(255, 154, 158, 0.8); }
 
-.rebirth-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+    .stats {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 20px 0;
+    }
 
-.rebirth-info {
-  font-size: 0.9em;
-  color: #666;
-  margin-top: 10px;
-}
+    .click-count {
+      font-size: 3em;
+      font-weight: bold;
+      color: #667eea;
+      margin: 10px 0;
+    }
 
-button.secondary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: 10px;
-}
+    .stats-label {
+      color: #666;
+      font-size: 1.1em;
+      margin-bottom: 5px;
+    }
 
-button.secondary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
+    .multiplier-display {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      border-radius: 12px;
+      padding: 15px;
+      margin: 15px 0;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #d35400;
+    }
 
-button.danger {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
+    .rebirth-section {
+      margin-top: 20px;
+    }
 
-button.danger:hover {
-  box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
-}
+    .rebirth-button {
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 10px;
+      box-shadow: 0 5px 20px rgba(253, 160, 133, 0.4);
+    }
 
-.leaderboard {
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  padding: 30px;
-  flex: 0 0 350px;
-  max-width: 400px;
-  animation: slideIn 0.5s ease-out 0.2s both;
-}
+    .rebirth-button:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(253, 160, 133, 0.6);
+    }
 
-.leaderboard h3 {
-  font-size: 1.8em;
-  margin-bottom: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-align: center;
-}
+    .rebirth-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
 
-#leaderList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    .rebirth-info {
+      font-size: 0.9em;
+      color: #666;
+      margin-top: 10px;
+    }
 
-#leaderList li {
-  padding: 15px;
-  margin-bottom: 10px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.95em;
-  transition: transform 0.2s ease;
-}
+    button.secondary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 10px;
+    }
 
-#leaderList li:hover {
-  transform: translateX(5px);
-}
+    button.secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
 
-#leaderList li:first-child {
-  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-  font-weight: bold;
-  font-size: 1.05em;
-}
+    button.danger {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
 
-#leaderList li:nth-child(2) {
-  background: linear-gradient(135deg, #e0e0e0 0%, #c9c9c9 100%);
-  font-weight: bold;
-}
+    button.danger:hover {
+      box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+    }
 
-#leaderList li:nth-child(3) {
-  background: linear-gradient(135deg, #cd7f32 0%, #b87333 100%);
-  font-weight: bold;
-  color: white;
-}
+    /* Leaderboard */
+    #leaderList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 500px;
+      overflow-y: auto;
+    }
 
-.rank {
-  font-weight: bold;
-  margin-right: 10px;
-  min-width: 30px;
-}
+    #leaderList li {
+      padding: 15px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95em;
+      transition: transform 0.2s ease;
+    }
 
-.player-info {
-  flex: 1;
-  text-align: left;
-  overflow: hidden;
-}
+    #leaderList li:hover {
+      transform: translateX(5px);
+    }
 
-.player-name {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-weight: bold;
-}
+    #leaderList li:first-child {
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      font-weight: bold;
+      font-size: 1.05em;
+    }
 
-.player-stats {
-  font-size: 0.85em;
-  color: #666;
-  margin-top: 2px;
-}
+    #leaderList li:nth-child(2) {
+      background: linear-gradient(135deg, #e0e0e0 0%, #c9c9c9 100%);
+      font-weight: bold;
+    }
 
-#leaderList li:first-child .player-stats,
-#leaderList li:nth-child(3) .player-stats {
-  color: rgba(255,255,255,0.8);
-}
+    #leaderList li:nth-child(3) {
+      background: linear-gradient(135deg, #cd7f32 0%, #b87333 100%);
+      font-weight: bold;
+      color: white;
+    }
 
-#login, #appContent {
-  display: none;
-}
+    .rank {
+      font-weight: bold;
+      margin-right: 10px;
+      min-width: 30px;
+    }
 
-.login-content {
-  padding: 20px;
-}
+    .player-info {
+      flex: 1;
+      text-align: left;
+      overflow: hidden;
+    }
 
-.welcome-emoji {
-  font-size: 4em;
-  margin: 20px 0;
-}
+    .player-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: bold;
+    }
 
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
+    .player-stats {
+      font-size: 0.85em;
+      color: #666;
+      margin-top: 2px;
+    }
 
-  .app, .leaderboard {
-    max-width: 100%;
-    flex: 1 1 auto;
-  }
+    #leaderList li:first-child .player-stats,
+    #leaderList li:nth-child(3) .player-stats {
+      color: rgba(255,255,255,0.8);
+    }
 
-  h2 {
-    font-size: 1.5em;
-  }
+    /* Achievements */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
 
-  .click-button {
-    width: 180px;
-    height: 180px;
-  }
+    .achievement-card {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: left;
+      transition: transform 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-  .click-count {
-    font-size: 2.5em;
-  }
+    .achievement-card.unlocked {
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      box-shadow: 0 5px 20px rgba(67, 233, 123, 0.4);
+    }
 
-  .leaderboard {
-    flex: 1 1 auto;
-  }
-}
+    .achievement-card.locked {
+      opacity: 0.6;
+      filter: grayscale(100%);
+    }
 
-@media (max-width: 480px) {
-  body {
-    padding: 10px;
-  }
+    .achievement-card:hover {
+      transform: translateY(-3px);
+    }
 
-  .app, .leaderboard {
-    padding: 20px;
-  }
+    .achievement-icon {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
 
-  .click-button {
-    width: 160px;
-    height: 160px;
-  }
-}
-```
+    .achievement-title {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 5px;
+      color: #333;
+    }
 
+    .achievement-description {
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .achievement-card.unlocked .achievement-description {
+      color: #1a5c3a;
+    }
+
+    .achievement-progress {
+      margin-top: 10px;
+      font-size: 0.85em;
+      color: #666;
+      font-style: italic;
+    }
+
+    /* Achievement Notification */
+    .achievement-notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 1000;
+      animation: achievementSlide 4s ease-in-out;
+      min-width: 300px;
+    }
+
+    .achievement-notification-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 5px;
+    }
+
+    .achievement-notification-desc {
+      font-size: 0.9em;
+    }
+
+    /* Rebirth Info Section */
+    .rebirth-stats {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .rebirth-stat-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .rebirth-stat-item:last-child {
+      border-bottom: none;
+    }
+
+    .rebirth-stat-label {
+      color: #666;
+      font-weight: 500;
+    }
+
+    .rebirth-stat-value {
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    #login, #appContent {
+      display: none;
+    }
+
+    .login-content {
+      padding: 20px;
+    }
+
+    .welcome-emoji {
+      font-size: 4em;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 768px) {
+      .app {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      .click-button {
+        width: 180px;
+        height: 180px;
+      }
+
+      .click-count {
+        font-size: 2.5em;
+      }
+
+      .achievements-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .achievement-notification {
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .click-button {
+        width: 160px;
+        height: 160px;
+      }
+
+      .nav-menu {
+        gap: 5px;
+      }
+
+      .nav-button {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -384,41 +529,80 @@ button.danger:hover {
         </div>
       </div>
 
-```
-  <div id="appContent">
-    <h2 id="userName">👋 Hallo</h2>
-    <p class="subtitle">Klicke so oft du kannst!</p>
-    
-    <button class="click-button stage-0" id="clickButton"></button>
+      <div id="appContent">
+        <h2 id="userName">👋 Hallo</h2>
+        
+        <div class="nav-menu">
+          <button class="nav-button active" data-section="play">🎮 Spielen</button>
+          <button class="nav-button" data-section="leaderboard">🏆 Leaderboard</button>
+          <button class="nav-button" data-section="rebirths">🔄 Wiedergeburten</button>
+          <button class="nav-button" data-section="achievements">🏅 Erfolge</button>
+        </div>
 
-    <div class="multiplier-display" id="multiplierDisplay">
-      ✨ Multiplikator: x1.0
-    </div>
+        <!-- PLAY SECTION -->
+        <div class="section active" id="play">
+          <p class="subtitle">Klicke so oft du kannst!</p>
+          
+          <button class="click-button stage-0" id="clickButton"></button>
 
-    <div class="stats">
-      <div class="stats-label">Deine Klicks</div>
-      <div class="click-count" id="myClicks">0</div>
-    </div>
+          <div class="multiplier-display" id="multiplierDisplay">
+            ✨ Multiplikator: x1.0
+          </div>
 
-    <div class="rebirth-section">
-      <button class="rebirth-button" id="rebirthButton" disabled>
-        🔄 Wiedergeburt (10,000 Klicks erforderlich)
-      </button>
-      <div class="rebirth-info" id="rebirthInfo">
-        Wiedergeburten: 0 | Nach Wiedergeburt: +10% pro Klick
+          <div class="stats">
+            <div class="stats-label">Deine Klicks</div>
+            <div class="click-count" id="myClicks">0</div>
+          </div>
+        </div>
+
+        <!-- LEADERBOARD SECTION -->
+        <div class="section" id="leaderboard">
+          <p class="subtitle">Die besten Spieler</p>
+          <ul id="leaderList"></ul>
+        </div>
+
+        <!-- REBIRTHS SECTION -->
+        <div class="section" id="rebirths">
+          <p class="subtitle">Setze dich zurück für dauerhafte Boni!</p>
+          
+          <div class="rebirth-stats">
+            <div class="rebirth-stat-item">
+              <span class="rebirth-stat-label">🔄 Wiedergeburten</span>
+              <span class="rebirth-stat-value" id="rebirthCount">0</span>
+            </div>
+            <div class="rebirth-stat-item">
+              <span class="rebirth-stat-label">✨ Aktueller Multiplikator</span>
+              <span class="rebirth-stat-value" id="currentMultiplier">x1.0</span>
+            </div>
+            <div class="rebirth-stat-item">
+              <span class="rebirth-stat-label">📈 Nächster Multiplikator</span>
+              <span class="rebirth-stat-value" id="nextMultiplier">x1.1</span>
+            </div>
+            <div class="rebirth-stat-item">
+              <span class="rebirth-stat-label">💎 Gesamtbonus</span>
+              <span class="rebirth-stat-value" id="totalBonus">+0%</span>
+            </div>
+          </div>
+
+          <div class="rebirth-section">
+            <button class="rebirth-button" id="rebirthButton" disabled>
+              🔄 Wiedergeburt (10,000 Klicks erforderlich)
+            </button>
+            <div class="rebirth-info" id="rebirthInfo">
+              Klicks werden auf 0 zurückgesetzt, aber du erhältst +10% dauerhaften Bonus pro Klick!
+            </div>
+          </div>
+        </div>
+
+        <!-- ACHIEVEMENTS SECTION -->
+        <div class="section" id="achievements">
+          <p class="subtitle">Sammle alle Erfolge!</p>
+          <div class="achievements-grid" id="achievementsGrid"></div>
+        </div>
+
+        <button class="secondary danger" id="signOutButton" style="margin-top: 30px;">Abmelden</button>
       </div>
     </div>
-
-    <button class="secondary danger" id="signOutButton">Abmelden</button>
-  </div>
-</div>
-
-<div class="leaderboard" id="leaderboardContainer" style="display: none;">
-  <h3>🏆 Leaderboard</h3>
-  <ul id="leaderList"></ul>
-</div>
-```
-
   </div>
 
   <script type="module">
@@ -443,7 +627,6 @@ button.danger:hover {
 
     const loginDiv = document.getElementById("login");
     const appDiv = document.getElementById("appContent");
-    const leaderboardContainer = document.getElementById("leaderboardContainer");
     const googleLoginButton = document.getElementById("googleLogin");
     const signOutButton = document.getElementById("signOutButton");
     const userNameElement = document.getElementById("userName");
@@ -453,11 +636,41 @@ button.danger:hover {
     const rebirthButton = document.getElementById("rebirthButton");
     const rebirthInfo = document.getElementById("rebirthInfo");
     const multiplierDisplay = document.getElementById("multiplierDisplay");
+    const achievementsGrid = document.getElementById("achievementsGrid");
 
     let currentUser = null;
     let userClicks = 0;
     let rebirths = 0;
     let multiplier = 1.0;
+    let achievements = {};
+    let clickTimes = [];
+    let firstClickTime = null;
+    let loginDates = [];
+
+    // Achievement definitions
+    const achievementDefs = {
+      firstClick: { icon: "🐣", title: "First Click", desc: "Make your first click", check: () => userClicks >= 1 },
+      warmedUp: { icon: "🔥", title: "Warmed Up", desc: "Reach 100 clicks", check: () => userClicks >= 100 },
+      speedDemon: { icon: "⚡", title: "Speed Demon", desc: "Reach 1,000 clicks", check: () => userClicks >= 1000 },
+      diamondClicker: { icon: "💎", title: "Diamond Clicker", desc: "Reach 10,000 clicks", check: () => userClicks >= 10000 },
+      clickMaster: { icon: "👑", title: "Click Master", desc: "Reach 50,000 clicks", check: () => userClicks >= 50000 },
+      legend: { icon: "🌟", title: "Legend", desc: "Reach 100,000 clicks", check: () => userClicks >= 100000 },
+      bornAgain: { icon: "🔄", title: "Born Again", desc: "Complete your first rebirth", check: () => rebirths >= 1 },
+      phoenixRising: { icon: "🦅", title: "Phoenix Rising", desc: "Complete 5 rebirths", check: () => rebirths >= 5 },
+      infinitePower: { icon: "♾️", title: "Infinite Power", desc: "Complete 10 rebirths", check: () => rebirths >= 10 },
+      colorCollector: { icon: "🎨", title: "Color Collector", desc: "Unlock all button color stages", check: () => userClicks >= 10000 }
+    };
+
+    // Navigation
+    document.querySelectorAll('.nav-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const section = btn.dataset.section;
+        document.querySelectorAll('.nav-button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(section).classList.add('active');
+      });
+    });
 
     googleLoginButton.addEventListener("click", async () => {
       try {
@@ -479,20 +692,29 @@ button.danger:hover {
 
     clickButton.addEventListener("click", () => {
       if (currentUser) {
+        const now = Date.now();
+        if (!firstClickTime) firstClickTime = now;
+        clickTimes.push(now);
+        
+        // Keep only last 100 clicks for speed calculations
+        if (clickTimes.length > 100) clickTimes.shift();
+        
         const userRef = ref(db, "clicks/" + currentUser.uid);
         const clickValue = multiplier;
         
         get(userRef).then(snapshot => {
-          let data = snapshot.exists() ? snapshot.val() : { count: 0, rebirths: 0 };
+          let data = snapshot.exists() ? snapshot.val() : { count: 0, rebirths: 0, achievements: {} };
           const newCount = (data.count || 0) + clickValue;
           
           update(userRef, {
             name: currentUser.displayName,
             count: newCount,
-            rebirths: data.rebirths || 0
+            rebirths: data.rebirths || 0,
+            achievements: achievements
           });
           
           updateButtonStage(newCount);
+          checkAchievements();
         });
       } else {
         alert("Bitte melden Sie sich an, um zu klicken!");
@@ -509,38 +731,90 @@ button.danger:hover {
           set(userRef, {
             name: currentUser.displayName,
             count: 0,
-            rebirths: newRebirths
+            rebirths: newRebirths,
+            achievements: achievements
           });
           
           rebirths = newRebirths;
           multiplier = newMultiplier;
           userClicks = 0;
+          clickTimes = [];
+          firstClickTime = null;
+          checkAchievements();
           updateUI();
         }
       }
     });
 
     function updateButtonStage(clicks) {
-      // Calculate stage based on powers of 2: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024
       let stage = 0;
-      if (clicks >= 1024) stage = 10;
-      else if (clicks >= 512) stage = 9;
-      else if (clicks >= 256) stage = 8;
-      else if (clicks >= 128) stage = 7;
-      else if (clicks >= 64) stage = 6;
-      else if (clicks >= 32) stage = 5;
-      else if (clicks >= 16) stage = 4;
-      else if (clicks >= 8) stage = 3;
-      else if (clicks >= 4) stage = 4;
-      else if (clicks >= 2) stage = 1;
+      if (clicks >= 10000) stage = 7;
+      else if (clicks >= 5000) stage = 6;
+      else if (clicks >= 1000) stage = 5;
+      else if (clicks >= 500) stage = 4;
+      else if (clicks >= 100) stage = 3;
+      else if (clicks >= 50) stage = 2;
+      else if (clicks >= 10) stage = 1;
       
       clickButton.className = `click-button stage-${stage}`;
+    }
+
+    function checkAchievements() {
+      for (const [key, def] of Object.entries(achievementDefs)) {
+        if (!achievements[key] && def.check()) {
+          achievements[key] = true;
+          showAchievementNotification(def);
+          
+          // Save to database
+          if (currentUser) {
+            const userRef = ref(db, "clicks/" + currentUser.uid);
+            update(userRef, { achievements: achievements });
+          }
+        }
+      }
+      renderAchievements();
+    }
+
+    function showAchievementNotification(achievement) {
+      const notification = document.createElement('div');
+      notification.className = 'achievement-notification';
+      notification.innerHTML = `
+        <div style="font-size: 2em; margin-bottom: 10px;">${achievement.icon}</div>
+        <div class="achievement-notification-title">Erfolg freigeschaltet!</div>
+        <div class="achievement-notification-desc">${achievement.title}</div>
+      `;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.remove();
+      }, 4000);
+    }
+
+    function renderAchievements() {
+      achievementsGrid.innerHTML = '';
+      
+      for (const [key, def] of Object.entries(achievementDefs)) {
+        const unlocked = achievements[key] || false;
+        const card = document.createElement('div');
+        card.className = `achievement-card ${unlocked ? 'unlocked' : 'locked'}`;
+        card.innerHTML = `
+          <div class="achievement-icon">${def.icon}</div>
+          <div class="achievement-title">${def.title}</div>
+          <div class="achievement-description">${def.desc}</div>
+          ${unlocked ? '<div class="achievement-progress">✅ Freigeschaltet!</div>' : '<div class="achievement-progress">🔒 Gesperrt</div>'}
+        `;
+        achievementsGrid.appendChild(card);
+      }
     }
 
     function updateUI() {
       myClicksSpan.textContent = Math.floor(userClicks);
       multiplierDisplay.textContent = `✨ Multiplikator: x${multiplier.toFixed(1)}`;
-      rebirthInfo.textContent = `Wiedergeburten: ${rebirths} | Nach Wiedergeburt: +${(multiplier - 1) * 100}% pro Klick`;
+      
+      document.getElementById('rebirthCount').textContent = rebirths;
+      document.getElementById('currentMultiplier').textContent = `x${multiplier.toFixed(1)}`;
+      document.getElementById('nextMultiplier').textContent = `x${(multiplier + 0.1).toFixed(1)}`;
+      document.getElementById('totalBonus').textContent = `+${((multiplier - 1) * 100).toFixed(0)}%`;
       
       rebirthButton.disabled = userClicks < 10000;
       rebirthButton.textContent = userClicks >= 10000 
@@ -548,6 +822,7 @@ button.danger:hover {
         : `🔄 Wiedergeburt (${Math.floor(userClicks)}/10,000)`;
       
       updateButtonStage(userClicks);
+      renderAchievements();
     }
 
     onAuthStateChanged(auth, (user) => {
@@ -555,7 +830,6 @@ button.danger:hover {
         currentUser = user;
         loginDiv.style.display = "none";
         appDiv.style.display = "block";
-        leaderboardContainer.style.display = "block";
         userNameElement.textContent = `👋 Hallo, ${user.displayName || "Gast"}`;
         loadUserClicks();
         watchLeaderboard();
@@ -563,7 +837,6 @@ button.danger:hover {
         currentUser = null;
         loginDiv.style.display = "block";
         appDiv.style.display = "none";
-        leaderboardContainer.style.display = "none";
       }
     });
 
@@ -576,11 +849,13 @@ button.danger:hover {
           userClicks = data.count || 0;
           rebirths = data.rebirths || 0;
           multiplier = 1.0 + (rebirths * 0.1);
+          achievements = data.achievements || {};
           updateUI();
         } else {
           userClicks = 0;
           rebirths = 0;
           multiplier = 1.0;
+          achievements = {};
           updateUI();
         }
       }).catch(error => {
@@ -593,7 +868,6 @@ button.danger:hover {
       onValue(allClicksRef, (snapshot) => {
         const data = snapshot.val() || {};
         const sorted = Object.values(data).sort((a, b) => {
-          // Sort by rebirths first, then by clicks
           if (b.rebirths !== a.rebirths) {
             return (b.rebirths || 0) - (a.rebirths || 0);
           }
@@ -630,6 +904,7 @@ button.danger:hover {
             userClicks = u.count || 0;
             rebirths = u.rebirths || 0;
             multiplier = 1.0 + (rebirths * 0.1);
+            achievements = u.achievements || {};
             updateUI();
           }
         });
@@ -637,6 +912,9 @@ button.danger:hover {
         console.error("Error watching leaderboard:", error);
       });
     }
+
+    // Initialize achievements on load
+    renderAchievements();
   </script>
 
 </body>
