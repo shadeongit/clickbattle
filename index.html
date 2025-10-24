@@ -516,16 +516,16 @@
     function updateButtonStage(clicks) {
       // Calculate stage based on powers of 2: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024
       let stage = 0;
-      if (clicks >= 1024) stage = 10;
-      else if (clicks >= 512) stage = 9;
-      else if (clicks >= 256) stage = 8;
-      else if (clicks >= 128) stage = 7;
-      else if (clicks >= 64) stage = 6;
-      else if (clicks >= 32) stage = 5;
-      else if (clicks >= 16) stage = 4;
-      else if (clicks >= 8) stage = 3;
-      else if (clicks >= 4) stage = 4;
-      else if (clicks >= 2) stage = 1;
+      if (clicks >= 3750) stage = 10;
+      else if (clicks >= 2500) stage = 9;
+      else if (clicks >= 1500) stage = 8;
+      else if (clicks >= 1000) stage = 7;
+      else if (clicks >= 750) stage = 6;
+      else if (clicks >= 500) stage = 5;
+      else if (clicks >= 250) stage = 4;
+      else if (clicks >= 100) stage = 3;
+      else if (clicks >= 50) stage = 4;
+      else if (clicks >= 10) stage = 1;
       
       clickButton.className = `click-button stage-${stage}`;
     }
